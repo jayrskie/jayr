@@ -1,0 +1,239 @@
+/* User catalog styles — distinct from admin
+   Accent: teal, card grid layout, label/value rows with 20px gap
+*/
+:root{
+    --accent: #0fa3a3; /* teal */
+    --card-bg: #ffffff;
+    --muted: #6b6b6b;
+    --surface: #f7f9fa;
+}
+
+/* Ensure the catalog section has breathing room */
+main#mainCatalog{ padding: 20px 28px; }
+
+/* Catalog header box — skyblue interaction area */
+.catalog-header{
+    background: linear-gradient(135deg, #87ceeb, #5dade2);
+    padding: 50px 20px;
+    margin-bottom: 24px;
+    margin-top: -28px;
+    box-shadow: 0 4px 12px rgba(15,163,163,0.1);
+    /* extend to edges of the main content by offsetting main padding (edge-to-edge) */
+    width: calc(100% + 56px);
+    margin-left: -28px;
+    margin-right: -28px;
+    box-sizing: border-box;
+}
+
+.search-filter-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: none; /* allow full width */
+    margin: 0;
+    padding: 0 12px; /* inner horizontal spacing */
+}
+
+.filter-dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.filter-btn{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 14px;
+    background-color: rgb(76, 76, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all .2s ease;
+}
+
+.filter-btn:hover{
+    opacity: 0.85;
+}
+
+.filter-btn img{
+    width: 16px;
+    height: 16px;
+}
+
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border: none;
+    border-radius: 6px;
+    margin-top: 4px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 10;
+}
+
+.dropdown-menu.active{
+    display: block;
+}
+
+.dropdown-item{
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background .2s ease;
+}
+
+.dropdown-item:last-child{
+    border-bottom: none;
+}
+
+.dropdown-item:hover{
+    background: #f5f5f5;
+    color: var(--accent);
+}
+
+.book-search-bar{
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid rgb(76, 76, 255);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: all .2s ease;
+}
+
+.book-search-bar:focus{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(15,163,163,0.1);
+}
+
+/* Search field dropdown */
+.search-field-dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.search-field-btn{
+    padding: 12px 12px;
+    background-color: rgb(76, 76, 255);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all .2s ease;
+    min-width: 120px;
+    text-align: left;
+}
+
+.search-field-btn:hover{
+    opacity: 0.85;
+}
+
+.search-field-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 4px;
+    min-width: 130px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 10;
+}
+
+.search-field-menu.active{
+    display: block;
+}
+
+.search-field-item{
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background .2s ease;
+}
+
+.search-field-item:last-child{
+    border-bottom: none;
+}
+
+.search-field-item:hover{
+    background: #f5f5f5;
+    color: var(--accent);
+}
+
+#booksContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+.book-card{
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(10,20,30,0.06);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform .14s ease, box-shadow .14s ease;
+    border: 1px solid rgb(76, 76, 255);
+}
+.book-card:hover{ transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,20,30,0.08); }
+
+.book-card-header{ display:flex; justify-content:space-between; align-items:center; }
+.book-title{ font-size:1.05rem; margin:0; color: #0c3545; }
+
+.book-meta{ display:flex; gap:20px; flex-wrap:wrap; }
+.book-meta .col{ flex:1 1 140px; min-width:120px; display:flex; flex-direction:row; align-items:center; gap:8px; }
+.book-meta .lbl{ color:var(--muted); font-size:0.83rem; display:block; font-weight:600; white-space:nowrap; }
+.book-meta .val{ font-weight:600; color:#15303a; display:block; white-space:normal; word-break:break-word; flex:1; }
+
+.available-badge{ display:inline-block; padding:4px 8px; border-radius:999px; font-size:0.8rem; color:#fff; }
+.available-yes{ background: var(--accent); }
+.available-none{ background: #9aa3a3; }
+
+/* Empty state */
+.no-books{ text-align:center; color:var(--muted); padding:36px 12px; font-size:1rem; background:var(--surface); border-radius:8px; }
+
+/* Expanded card area */
+.book-expanded{
+    display: none;
+}
+.book-card.expanded{
+    transform: none;
+}
+.book-card.expanded .book-expanded{
+    display: block;
+}
+.expanded-actions{
+    display: flex;
+    justify-content: flex-end;
+}
+.borrow-btn{
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.borrow-btn:hover{ opacity: 0.95; }
+/* Responsive adjustments */
+@media (max-width:600px){
+    #booksContainer{ grid-template-columns: 1fr; }
+    .book-labels, .book-values{ gap:12px; }
+}
