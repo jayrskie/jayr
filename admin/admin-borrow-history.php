@@ -56,7 +56,6 @@ if (!isset($_SESSION['library_id'])) {
                         <th>Book Title</th>
                         <th>Borrow Date</th>
                         <th>Expires At</th>
-                                <th>Days Left</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -167,26 +166,22 @@ if (!isset($_SESSION['library_id'])) {
             tableBody.innerHTML = '';
 
             if (records.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="6" class="no-records">No borrow history records</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="5" class="no-records">No borrow history records</td></tr>';
                 return;
             }
 
                 records.forEach(record => {
                 const borrowDate = new Date(record.borrow_date);
                 const expiresDate = new Date(record.expires_at);
-                const now = new Date();
-                const daysLeft = Math.ceil((expiresDate - now) / (1000 * 60 * 60 * 24));
 
                 const row = document.createElement('tr');
-                const daysClass = daysLeft <= 2 ? 'warning' : 'normal';
-                
+
                 row.innerHTML = `
                     <td>${record.library_id}</td>
                     <td>${record.username || 'Unknown'}</td>
                     <td>${record.book_title}</td>
                     <td>${borrowDate.toLocaleDateString()} ${borrowDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                     <td>${expiresDate.toLocaleDateString()} ${expiresDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
-                    <td><span class="days-left ${daysClass}">${daysLeft} days</span></td>
                 `;
                 tableBody.appendChild(row);
             });
