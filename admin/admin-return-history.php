@@ -56,7 +56,6 @@ if (!isset($_SESSION['library_id'])) {
                         <th>Book Title</th>
                         <th>Borrow Date</th>
                         <th>Return Date</th>
-                        <th>Days Borrowed</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -159,7 +158,7 @@ if (!isset($_SESSION['library_id'])) {
             tableBody.innerHTML = '';
 
             if (records.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="6" class="no-records">No return history records</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="5" class="no-records">No return history records</td></tr>';
                 return;
             }
 
@@ -175,7 +174,6 @@ if (!isset($_SESSION['library_id'])) {
                     <td>${record.book_title}</td>
                     <td>${borrowDate.toLocaleDateString()} ${borrowDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                     <td>${returnDate.toLocaleDateString()} ${returnDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
-                    <td><span class="days-badge">${record.days_borrowed} days</span></td>
                 `;
                 tableBody.appendChild(row);
             });
