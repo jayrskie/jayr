@@ -13,11 +13,10 @@ main#mainCatalog{ padding: 20px 28px; }
 
 /* Catalog header box — skyblue interaction area */
 .catalog-header{
-    background: linear-gradient(135deg, #87ceeb, #5dade2);
+    background-color: white;
     padding: 50px 20px;
     margin-bottom: 24px;
     margin-top: -28px;
-    box-shadow: 0 4px 12px rgba(15,163,163,0.1);
     /* extend to edges of the main content by offsetting main padding (edge-to-edge) */
     width: calc(100% + 56px);
     margin-left: -28px;
