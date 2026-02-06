@@ -1,3 +1,0 @@
--- Migration: Password hashing support
--- The 'password' column will now store bcrypt-hashed passwords
--- This migration is informational - no schema changes needed if 'password' column exists
