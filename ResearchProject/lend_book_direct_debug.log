@@ -1,0 +1,9 @@
+[2026-02-11 03:58:29] ERROR: User already has this book borrowed. Return it before lending again.
+POST: {"user_id":"2","book_id":"3","borrow_type":"classroom","book_copy_id":"8","borrow_schedule":"pm"}
+
+[2026-02-11 04:05:55] ERROR: User already has this book borrowed. Return it before lending again.
+POST: {"user_id":"2","book_id":"3","borrow_type":"takehome","borrow_duration":"1"}
+
+[2026-02-11 04:06:27] ERROR: User already has this book borrowed. Return it before lending again.
+POST: {"user_id":"2","book_id":"3","borrow_type":"takehome","borrow_duration":"1"}
+
